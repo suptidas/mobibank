@@ -120,7 +120,7 @@ body {
 <div class="navbar">
   <a href="#">About</a>
   <a href="login">Login</a>
-  <a href="regi">Register</a>
+  <a href="registration">Register</a>
  
 </div>
 

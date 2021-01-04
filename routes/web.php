@@ -18,17 +18,27 @@ Route::get('/', function () {
 });
 
 
+// Route::get('/login',  'loginController@index');
+// Route::post('/login', 'loginController@verify');
+// Route::get('/signup',  'SignupController@Signupindex');
+// Route::post('/signup', 'SignupController@Signupverify');
 Route::get('/login',  'loginController@index');
 Route::post('/login', 'loginController@verify');
+Route::get('/registration', 'RegistrationController@index')->name('reg.index');
+Route::post('/registration', 'RegistrationController@store')->name('reg.store');
 Route::resource('employees','EmployeeController');
 Route::resource('jobs','JobController');
-//Route::get('search', 'SearchController@index')->name('search');
-//Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
+
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+Route::get('/dynamic_pdf', 'DynamicPDFController@index');
+
+Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
 
 
 
 
-
+//Sadat Routes
 Route::group(['middleware'=>['sess']], function() {
 
 Route::get('/home',            'homeController@index')->name('home.index');

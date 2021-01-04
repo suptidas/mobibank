@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class LoginController extends Controller
+class RegistrationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,42 +14,8 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login.index');
+        return view('registration.index');
     }
-
-    public function verify(Request $req)
-    {
-		$validatedData = $req->validate([
-			'username' => 'required|max:30',
-			'password' => 'required|max:10'
-		]);
-		$user = User::where('username', $req->username)
-					->where('password', $req->password)
-                    ->first();
-        // dd($user->type);
-        if($user)
-        {
-            if($user->type == "employee_admin")
-            {
-                $req->session()->put('user', $user);
-                return redirect()->route('employees.index');
-            }
-            else if($user->type == "employee")
-            {
-                $req->session()->put('user', $user);
-                return redirect()->route('jobs.index');
-            }
-            else
-            {
-                return redirect()->route('login.index');
-            }
-        }
-        else
-        {
-            $req->session()->flash('msg', 'invalid username/password');
-            return redirect()->route('login.index');
-        }
-	}
 
     /**
      * Show the form for creating a new resource.
@@ -69,7 +35,24 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => 'required|string|max:30',
+            'password' => 'required|string|max:10',
+            'name' => 'required|string|max:30',
+            'phn' => 'required|numeric|digits:11'
+        ]);
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->name = $request->name;
+        $user->cell = $request->phn;
+        $user->type = "employee";
+        $user->type = "employee_admin";
+        if($user->save())
+        {
+           // return redirect()->route('login.index');
+        }
     }
 
     /**
