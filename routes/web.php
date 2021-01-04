@@ -17,8 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/login',  'loginController@index');
 Route::post('/login', 'loginController@verify');
+Route::resource('employees','EmployeeController');
+Route::resource('jobs','JobController');
+//Route::get('search', 'SearchController@index')->name('search');
+//Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
+
+
+
+
 
 Route::group(['middleware'=>['sess']], function() {
 
@@ -31,7 +40,7 @@ Route::post('/empCreate',      'homeController@empStore');
 
 Route::get('/emplist',         'homeController@emplist')->name('home.emplist');
 
-Route::get('/empDetails/{id}', 'homeController@empDetails')->name('home.empDetails');
+Route::get('/empPasswords/{id}', 'homeController@empPasswords')->name('home.empPasswords');
 
 Route::get('/empEdit/{id}',    'homeController@empEdit')->name('home.empEdit');
 Route::post('/empEdit/{id}',   'homeController@empUpdate');

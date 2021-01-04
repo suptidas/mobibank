@@ -162,10 +162,10 @@ class homeController extends Controller
     	  
     }
 
-    public function empDetails($id){
+    public function empPasswords($id){
        
      $employees=Manager::find($id);
-     return view ('home.empDetails',$employees);      
+     return view ('home.empPasswords',$employees);      
 
     }
 

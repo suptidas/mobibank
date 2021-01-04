@@ -1,100 +1,160 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-        <title>Laravel</title>
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: MediumSpringGreen;
+  color: FireBrick;
+}
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
 
-            .full-height {
-                height: 100vh;
-            }
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
 
-            .position-ref {
-                position: relative;
-            }
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-            .content {
-                text-align: center;
-            }
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
 
-            .title {
-                font-size: 84px;
-            }
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Online Banking System</h1>
+  <p>A trusted syetem for money transitions</p>
+</div>
+
+<div class="navbar">
+  <a href="#">About</a>
+  <a href="login">Login</a>
+  <a href="regi">Register</a>
+ 
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>About Us</h2>
+    <h5>More of Us:</h5>
+    <div class="fakeimg" style="height:200px;">Regularly check your Bank, Credit Card and Debit Card Statement, Report if suspicious transactions are found..
+</div>
+    <p>Our online management system is a trusted system for money transitions..</p>
+    <h3>More..</h3>
+    <p>Some features we offer:</p>
+    <div class="fakeimg" style="height:60px;">Money Deposit</div><br>
+    <div class="fakeimg" style="height:60px;">Remitance</div><br>
+    <div class="fakeimg" style="height:60px;">Credit/Debit</div>
+  </div>
+  <div class="main">
+    <h2>E-Banking</h2>
+    <h5>A trusted syetem for money transitions</h5>
+    <div class="fakeimg" style="height:200px;">Our Bank provides various of Alternate Delivery Channels like ATM, Debit Card, Mobile Banking, Internet Banking and Cash Management services and many new customer centric employees. These employees help customers in banking without actually walking into the branch. All the Digital Employees will make your banking experience smooth and save time as well as money.</div>
+    <p>Our Bank..</p>
+    <p>A bank is a financial institution licensed to receive deposits and make loans. Banks may also provide financial services such as wealth management, currency exchange, and safe deposit boxes.</p>
+    <br>
+    <h2>Other Facilities</h2>
+    
+    <div class="fakeimg" style="height:200px;">Our Bank brings you Instant Money Transfer service, P@yNow. Transfer money within seconds to other partner bank(s) from BRAC Bank Internet Banking service 24/7 . This service is powered by NPSB (National Payment Switch Bangladesh).</div>
+    <p>Our system provides..</p>
+    <p> There are several different kinds of banks including retail banks, commercial or corporate banks, and investment banks.</p>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Online Banking</h2>
+</div>
+
+</body>
 </html>
