@@ -48,10 +48,16 @@
     </table>
   
     {!! $employees->links() !!}
-    <hr></br><i><u><h2> <a href="live_search">Search Customer</a></h2></u></i></br>
-   <hr></br><i><u><h2> <a href="dynamic_pdf">Customer details download</a></h2></u></i></br><hr>
-   <hr></br><i><u><h2> <a href="jobs">Add New Job</a></h2></u></i></br><hr>
-   <hr></br><i><u><h2> <a href="file-upload">Upload Files(csv,pdf,xlx)</a></h2></u></i></br><hr>
+    <hr></br><i><u><h2> <a  class="btn btn-primary" href="login">Logout</a></h2></u></i>
+   
+    <i><u><h2> <a class="btn btn-info" href="live_search">Search Customer</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-success" href="dynamic_pdf">Customer details download</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-primary" href="jobs">Add New Job</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-info" href="accounts">Add New Account</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-success" href="account_pdf">Account Details Download</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-primary" href="file-upload">Upload Files(csv,pdf,xlx)</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-info" href="ajaxImageUpload">Image Upload</a></h2></u></i>
+    <i><u><h2> <a class="btn btn-success" href="change-password">change-password</a></h2></u></i>
       
 @endsection
 

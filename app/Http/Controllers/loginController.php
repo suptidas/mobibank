@@ -29,12 +29,7 @@ class LoginController extends Controller
         // dd($user->type);
         if($user)
         {
-            if($user->type == "employee_admin")
-            {
-                $req->session()->put('user', $user);
-                return redirect()->route('employees.index');
-            }
-            else if($user->type == "employee")
+            if($user->type == "employee")
             {
                 $req->session()->put('user', $user);
                 return redirect()->route('employees.index');

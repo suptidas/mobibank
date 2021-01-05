@@ -48,10 +48,11 @@ class RegistrationController extends Controller
         $user->name = $request->name;
         $user->cell = $request->phn;
         $user->type = "employee";
-        $user->type = "employee_admin";
+        
         if($user->save())
         {
-           // return redirect()->route('login.index');
+           
+            //return redirect()->route('login.index');
         }
     }
 
