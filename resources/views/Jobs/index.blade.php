@@ -51,7 +51,6 @@
     </table>
   
     {!! $jobs->links() !!}
-   <hr></br><i><u><h2> <a href="live_search">Search Customer</a></h2></u></i></br>
-   <hr></br><i><u><h2> <a href="dynamic_pdf">Customer details download</a></h2></u></i></br><hr>
+
    <input type="button" value="Go back!" onclick="history.back()">
 @endsection

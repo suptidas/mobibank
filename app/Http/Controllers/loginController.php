@@ -37,7 +37,7 @@ class LoginController extends Controller
             else if($user->type == "employee")
             {
                 $req->session()->put('user', $user);
-                return redirect()->route('jobs.index');
+                return redirect()->route('employees.index');
             }
             else
             {

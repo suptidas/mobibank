@@ -48,6 +48,10 @@
     </table>
   
     {!! $employees->links() !!}
+    <hr></br><i><u><h2> <a href="live_search">Search Customer</a></h2></u></i></br>
+   <hr></br><i><u><h2> <a href="dynamic_pdf">Customer details download</a></h2></u></i></br><hr>
+   <hr></br><i><u><h2> <a href="jobs">Add New Job</a></h2></u></i></br><hr>
+   <hr></br><i><u><h2> <a href="file-upload">Upload Files(csv,pdf,xlx)</a></h2></u></i></br><hr>
       
 @endsection
 
