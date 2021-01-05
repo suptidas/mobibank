@@ -44,6 +44,7 @@
 		</tr>
 	</table>
 	</form>
+	<a href="{{ url('auth/google') }}" ><strong>Login With Google</strong></a>
 </fieldset>
 </body>
 </html>

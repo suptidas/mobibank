@@ -52,7 +52,7 @@ class RegistrationController extends Controller
         if($user->save())
         {
            
-            //return redirect()->route('login.index');
+            return redirect()->route('login.index');
         }
     }
 

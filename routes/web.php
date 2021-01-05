@@ -17,16 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/login',  'loginController@index');
-Route::post('/login', 'loginController@verify');
+Route::get('/login',  'LoginController@index')->name('login.index');
+Route::get('/logout',  'LogoutController@index')->name('logout.index');
+Route::post('/login', 'LoginController@verify');
 //Route::get('/logout', 'logoutController@index')->name('logout');
 Route::get('/registration', 'RegistrationController@index')->name('reg.index');
 Route::post('/registration', 'RegistrationController@store')->name('reg.store');
 Route::resource('accounts','AccountController');
 Route::get('/account_pdf', 'AccountPDFController@index');
 Route::get('/account_pdf/pdf', 'AccountPDFController@pdf');
-
+Route::get('auth/google', 'GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
 Route::group(['middleware'=>['sess']], function() {
 //Employee
@@ -43,7 +44,7 @@ Route::get('linkposts','LinkPostController@index');
 Route::get('linkposts/store','LinkPostController@store');
 Route::get('ajaxImageUpload', 'AjaxImageUploadController@ajaxImageUpload');
 Route::post('ajaxImageUpload', 'AjaxImageUploadController@ajaxImageUploadPost')->name('ajaxImageUpload');
-Route::get('/logout',  'logoutController@index');
+
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
 

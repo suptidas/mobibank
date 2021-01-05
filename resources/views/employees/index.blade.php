@@ -48,8 +48,8 @@
     </table>
   
     {!! $employees->links() !!}
-    <hr></br><i><u><h2> <a  class="btn btn-primary" href="login">Logout</a></h2></u></i>
-   
+
+    <a  class="btn btn-primary" href="{{ route('logout.index') }}">Logout</a>
     <i><u><h2> <a class="btn btn-info" href="live_search">Search Customer</a></h2></u></i>
     <i><u><h2> <a class="btn btn-success" href="dynamic_pdf">Customer details download</a></h2></u></i>
     <i><u><h2> <a class="btn btn-primary" href="jobs">Add New Job</a></h2></u></i>

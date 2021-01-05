@@ -12,8 +12,8 @@ class LinkPostController extends Controller
     	$response = Http::get('http://jsonplaceholder.typicode.com/posts');
   
     	$jsonData = $response->json();
-    	  
-    	echo "<pre> status:";
+    	return view('posts.index',compact('jsonData'));
+    	/*echo "<pre> status:";
     	print_r($response->status());
     	echo "<br/> ok:";
     	print_r($response->ok());
@@ -24,7 +24,7 @@ class LinkPostController extends Controller
         echo "<br/> clientError:";
         print_r($response->clientError());
         echo "<br/> headers:";
-        print_r($response->headers());
+        print_r($response->headers());*/
     }
 
     public function store()
