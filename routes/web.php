@@ -31,6 +31,8 @@ Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
 //Laravel 7 Http Client Request
 Route::get('posts','PostController@index');
 Route::get('posts/store','PostController@store');
+Route::get('linkposts','LinkPostController@index');
+Route::get('linkposts/store','LinkPostController@store');
 
 
 
