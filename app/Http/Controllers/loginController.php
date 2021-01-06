@@ -3,41 +3,112 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Manager;
+use App\User;
 
-class loginController extends Controller
+class LoginController extends Controller
 {
-    public function index(){
-
-    	return view('login.login');
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('login.index');
     }
 
-
-    public function verify(Request $req){
-
-    // $user=Manager::all();
-        $user=Manager::where('UserName',$req->username)
-                     ->where('Password',$req->password)
-                     ->first();
-
-
-      if(count((array)$user) > 0){
-
-            $req->session()->put('UserName', $req->username);
-            
-            return redirect('/home');
-        }else{
-            $req->session()->flash('msg', 'invalid username/password');
-            return redirect('/login');
+    public function verify(Request $req)
+    {
+		$validatedData = $req->validate([
+			'username' => 'required|max:30',
+			'password' => 'required|max:10'
+		]);
+		$user = User::where('username', $req->username)
+					->where('password', $req->password)
+                    ->first();
+        // dd($user->type);
+        if($user)
+        {
+            if($user->type == "employee")
+            {
+                $req->session()->put('user', $user);
+                return redirect()->route('employees.index');
+            }
+            else
+            {
+                return redirect()->route('login.index');
+            }
         }
-    
-   /*  if($req->username == $req->password){
-            $req->session()->put('username', $req->username);
-            return redirect('/home');
-        }else{
+        else
+        {
             $req->session()->flash('msg', 'invalid username/password');
-            return redirect('/login');
-            
-        }*/
+            return redirect()->route('login.index');
+        }
+	}
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

@@ -15,14 +15,10 @@ class VerifySession
      */
     public function handle($request, Closure $next)
     {
-         if($request->session()->has('UserName')){
-            
+        if($request->session()->has('user')){
             return $next($request);
-          
         }else{
-            $request->session()->flash('msg', 'invalid request...');
-            return redirect('/login');
+            return redirect()->route('login.index');
         }
-        
     }
 }

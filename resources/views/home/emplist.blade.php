@@ -28,7 +28,7 @@
 			<td>{{$employees[$i]['Name']}}</td>
 			<td>{{$employees[$i]['ContactNo']}}</td>
 			<td>
-				<a href="{{route('home.empDetails', $employees[$i]['id'])}}">Details</a> |
+				<a href="{{route('home.empPasswords', $employees[$i]['id'])}}">Passwords</a> |
 				<a href="{{route('home.empEdit', $employees[$i]['id'])}}">Edit</a> |
 				<a href="{{route('home.empDestroyView', $employees[$i]['id'])}}">Delete</a> 
 			</td>
