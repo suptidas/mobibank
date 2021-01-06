@@ -26,6 +26,7 @@ class empRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email'=> 'required',
+            'type' => 'required',
             'password' => 'required|min:4'
         ];
     }
@@ -34,10 +35,11 @@ class empRequest extends FormRequest
     {
            return 
            [ 
-            'name.required'=> "can't left empty....",
-            'name.min'=> "must be at least 3 ch....",
+            'name.required'=> "Name is empty..",
+            'name.min'=> "Name Must be at least 3 character",
+            'type.required'=> "Type can't left empty ",
             'email.required'=> "Email can't left empty....",
-            'password.min'=> "must be at least 4 ch...."
+            'password.min'=> "Password must be at least 4 character."
         ];
     }
 }

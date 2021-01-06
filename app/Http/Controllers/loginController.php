@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Manager;
+use App\User;
 
 class loginController extends Controller
 {
@@ -15,29 +15,34 @@ class loginController extends Controller
 
     public function verify(Request $req){
 
-    // $user=Manager::all();
-        $user=Manager::where('UserName',$req->username)
-                     ->where('Password',$req->password)
+    
+        $user=User::where('username',$req->username)
+                     ->where('password',$req->password)
                      ->first();
 
 
-      if(count((array)$user) > 0){
+      if($user != NULL){
 
-            $req->session()->put('UserName', $req->username);
-            
-            return redirect('/home');
-        }else{
-            $req->session()->flash('msg', 'invalid username/password');
-            return redirect('/login');
-        }
-    
-   /*  if($req->username == $req->password){
             $req->session()->put('username', $req->username);
-            return redirect('/home');
-        }else{
+            $req->session()->put('id', $user->id);
+            $req->session()->put('usertype', $user->usertype);
+            $req->session()->put('picture', $user->picture);
+
+            if($user['usertype'] == 'Admin')
+            {
+                return redirect('/adminhome');
+            }
+            else if($user['usertype'] == 'Manager' ||'manager')
+            {
+                return redirect('/manager/home');   
+            }
+            }else{
             $req->session()->flash('msg', 'invalid username/password');
             return redirect('/login');
-            
-        }*/
+            }
+    
     }
 }
+
+
+

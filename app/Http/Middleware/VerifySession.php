@@ -15,7 +15,7 @@ class VerifySession
      */
     public function handle($request, Closure $next)
     {
-         if($request->session()->has('UserName')){
+         if($request->session()->has('username')){
             
             return $next($request);
           
