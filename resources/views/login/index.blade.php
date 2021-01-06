@@ -38,6 +38,7 @@
 			<td></td>
 			<td><input type="submit" name="submit" value="Submit"></td>
 		</tr>
+		
         <tr>
 			<td></td>
 			<td><a href="{{route('reg.index')}}">Registration</a></td>
