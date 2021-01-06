@@ -39,8 +39,8 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'name' => 'required|string|max:30',
+            'detail' => 'required|string|max:20',
         ]);
   
         account::create($request->all());

@@ -29,6 +29,7 @@ Route::get('/account_pdf/pdf', 'AccountPDFController@pdf');
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
+
 Route::group(['middleware'=>['sess']], function() {
 //Employee
 Route::resource('employees','EmployeeController');
@@ -49,22 +50,7 @@ Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload'
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
 
 
+
 });
 
-// Route::group(['middleware'=>['sess']], function() {
-
-
-
-// //sadat
-// Route::get('/home',            'homeController@index')->name('home.index');
-// Route::get('/profile',          'homeController@profile')->name('home.profile');
-// Route::get('/empCreate',       'homeController@empCreate')->name('home.empCreate');
-// Route::post('/empCreate',      'homeController@empStore');
-// Route::get('/emplist',         'homeController@emplist')->name('home.emplist');
-// Route::get('/empPasswords/{id}', 'homeController@empPasswords')->name('home.empPasswords');
-// Route::get('/empEdit/{id}',    'homeController@empEdit')->name('home.empEdit');
-// Route::post('/empEdit/{id}',   'homeController@empUpdate');
-// Route::get('/empDelete/{id}',  'homeController@empDestroyView')->name('home.empDestroyView');
-// Route::post('/empDelete/{id}', 'homeController@empDestroy');
-// });
 

@@ -14,6 +14,7 @@
  </head>
  <body>
   <br />
+  
   <div class="container">
    <h3 align="center">Account Details</h3><br />
    
@@ -21,6 +22,7 @@
     <div class="col-md-7" align="right">
      <h4>account Data</h4>
     </div>
+    
     <div class="col-md-5" align="right">
      <a href="{{ url('account_pdf/pdf') }}" class="btn btn-danger">Convert into PDF</a>
     </div>
@@ -44,8 +46,10 @@
       </tr>
      @endforeach
      </tbody>
+     
     </table>
    </div>
   </div>
+  
  </body>
 </html>

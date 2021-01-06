@@ -3,12 +3,15 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="pull-left"></br>
                 <h2>Account Details</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right"></br>
                 <a class="btn btn-success" href="{{ route('accounts.create') }}"> Create New Account</a>
             </div>
+            <div class="pull-right"></BR>
+            <a class="btn btn-primary" href="{{ route('employees.index') }}"> Back</a>
+        </div>
         </div>
     </div>
    

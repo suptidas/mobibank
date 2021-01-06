@@ -39,8 +39,8 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'password' => 'required',
+            'name' => 'required|string|max:30',
+            'password' => 'required|string|max:10',
         ]);
   
         Employee::create($request->all());

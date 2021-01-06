@@ -39,9 +39,9 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-            'salary' => 'required',
+            'name' => 'required|string|max:30',
+            'detail' => 'required|string|max:200',
+            'salary' => 'required|int',
         ]);
   
         Job::create($request->all());
